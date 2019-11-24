@@ -1,0 +1,6 @@
+{"questions":[
+  { "Q_id": "3", "Q_title":"Test Question 3","Q_text":"Write a function with the name test3, that returns the string: Hello World","Q_solution":"","Q_hints":"","Q_tests":""},
+  { "Q_id": "5", "Q_title":"Test Question 4","Q_text":"Write a function with the name test5, that returns the string: Hello World","Q_solution":"","Q_hints":"","Q_tests":""},
+  { "Q_id": "10", "Q_title":"Test Question 10","Q_text":"Write a function called dickdraw that draws a dick called john","Q_solution":"","Q_hints":"","Q_tests":""}
+
+]}

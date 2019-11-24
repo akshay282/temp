@@ -1,0 +1,50 @@
+{
+"questions":[
+	 			{
+				"Q_id":"w1q1", 
+				"Q_title":"Letter Counter",
+				"Q_text":"Write a function letter_counter that takes in a string and returns a tuple formed by a dictionary made up of the count of each letter in the string (the key is the letter, the value is the frequency), and the total number of distinct letters in the string.",
+				"Q_func_name":"letter_counter",
+				"Q_solution":"def letter_counter(word):\n\tdictionary = {}\n\tfor letter in word:\n\t\tif letter not in dictionary:\n\t\t\tdictionary[letter] = 1\n\t\telse:\n\t\t\tdictionary[letter] = dictionary[letter] + 1\n\treturn (dictionary, len(dictionary))",
+				"Q_hints":[
+						    {"hint": "You can start with an empty dictionary, and then iterate through the string adding a key for, or incrementing the value of, each letter. The number of distinct letters is then the number of keys in the dictionary"}, 
+						    {"hint": "You can create an empty dictionary with: ‘letters = {}’. You can then Iterate through the letters of the string with a ‘for letter in letters :’ loop. IF the current letter is not in the letters dictionary: ‘if letter not in letters’, add it with a value of 1: ‘letters[letter] = 1’, otherwise, increment it: ‘letters[letter] = letters[letter] +1’. You can then find the number of distinct letters by finding the number of keys in letters: ‘distinct_letters = len(list(letters.keys()))’. You can then return the tuple with: ‘return (letters, distinct_letters)’"}
+						  ],
+				"Q_tests":"tests = [('Hello',({'H': 1, 'e': 1, 'l': 2, 'o': 1}, 4)),('', ({},0)),('aaaa', ({'a': 4},1))]\nfor i in tests:\n\toutput = letter_counter(i[0])\n\tif (str(output) == str(i[1])):\n\t\tend = 'PASS'\n\telse:\n\t\tend = 'FAIL'\n\tprint(f'input: {i[0]}, expected output: {i[1]!r}, actual output: {output!r}, PASS/FAIL: {end}')"
+			    },
+			    {
+				"Q_id":"w1q2", 
+				"Q_title":"Calculate Product From Text",
+				"Q_text":"Write a function getProduct that takes in a string showing the product of several positive integers. The function should evaluate the expression in the string and return the answer. For example, if the string = '12*2*10' then getProduct('12*2*10') must return 240. Similarly, if the string ='4*2*3*1' then getProduct('4*2*3*1') must return 24. You can assume that text is always a valid expression (e.g., as in the examples above) and will not contain any character other than digits and *.",
+				"Q_func_name":"getProduct",
+				"Q_solution":"def getProduct(in_string):\n\tproduct = 1\n\tthisValue = ''\n\tfor i in range(len(in_string)):\n\t\tif in_string[i] == '*':\n\t\t\tproduct *= int(thisValue)\n\t\t\tthisValue = ''\n\t\telse:\n\t\t\tthisValue += in_string[i]\n\tproduct *= int(thisValue)\n\treturn product",
+				"Q_hints":[
+						    {"hint": "You need to iterate through the string. If the letter is a digit, you need to keep track of it and go on to the next letter. If this is also a digit, add it to the end of the last digit. Once you find a '*' you need to multiply the current running total by the number you found previously found."}, 
+						    {"hint": "A letter in the string is either a '*' or a digit, so for each letter you need to check IF it is a '*'. If it is not, you know it is a digit (since we are assuming valid strings)"}
+						  ],
+				"Q_tests":[
+							{"input":"'12*2*10'", "output":"24"},
+							{"input":"'1'", "output":"1"}
+				    	  ]
+			    },
+			    {
+				"Q_id":"w1q3", 
+				"Q_title":"Create a Class",
+				"Q_text":"Write a class called Student which has a contructor that initialises 'name' and 'ID_number'.\n\nCreate a function in this class called setAge which assigns an age to a student.\n\nFinally, create a function in this class called getInfomation which returns a tuple with the students ID_number, name and age.\n\nNow create a variable test_student and create a student with an ID of 199011864, name John Smith and set their age to 18." ,
+				"Q_func_name":"test_student.getInformation()",
+				"Q_solution":"class Student():\n\tdef __init__(self,ID_number,name):\n\t\tself.ID_number = ID_number\n\t\tself.name=name\n\n\tdef setAge(self,age):\n\t\tself.age=age\n\n\tdef getInfomation(self):\n\treturn (self.ID_number, self.name, self.age)\n\n\ntest_student = Student(199011864, 'John Smith')\ntest_student.setAge(18)\n\nprint(test_student.getInfomation())",
+				"Q_hints":[
+						    {"hint": "A constructor is a function of the form: 'def __init__(self,param1,param2,....)'. You can then assign values to data members inside the constructor with: 'self.param1 = param1'"}, 
+						    {"hint": "Functions that belong to classes should be defined inside the class, they are then written the same as regular functions. Writing a function to set a new variable should be of the form: 'setParam(self,param)' and then: 'self.param = param' inside the body"},
+						    {"hint": "You can return values that belong to a class by having: 'return self.value'."},
+						    {"hint": "Creating a new object (instance) of a class is done using the constructor: 'test_student = Student(<ID>, <name>)'"},
+						    {"hint": "You can use functions belonging to a function by using its' variable name, a fullstop and then the function: 'test_student.setAge(<age>)'"} 
+						  ],
+				"Q_tests":[
+							{"input":"", "output":"'(199011864, 'John Smith', 18)'"}
+				    	  ]
+			    }
+			    
+			]
+}
+
